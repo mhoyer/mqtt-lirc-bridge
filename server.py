@@ -1,6 +1,3 @@
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 import paho.mqtt.client as mqtt
 import lirc
 
