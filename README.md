@@ -57,7 +57,17 @@ sudo cp RM-RXUT200R.lircd.conf /etc/lirc/lircd.conf.d/RM-RXUT200R.lircd.conf
 sudo systemctl restart lircd.service
 ```
 
-You should now be able to see available IR
+You should now be able to see available IR commands:
+
+```bash
+irsend LIST JVC_RM-RXUT200R ""
+```
+
+## Setup the MQTT-LIRC bridge
+
+```bash
+./run.sh
+```
 
 ## My setup while doing the install
 
