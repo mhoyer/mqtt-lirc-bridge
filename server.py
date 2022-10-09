@@ -18,6 +18,13 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(mqtt_queue_name)
 
 def on_message(client, userdata, msg):
-    lirc_client.send_once('JVC_RM-RXUT200R', 'KEY_POWER', 5)
+    try:
+      lirc_client.send_once('JVC_RM-RXUT200R', 'KEY_POWER', 0)
+      lirc_client.send_once('JVC_RM-RXUT200R', 'KEY_POWER', 0)
+      lirc_client.send_once('JVC_RM-RXUT200R', 'KEY_POWER', 0)
+      lirc_client.send_once('JVC_RM-RXUT200R', 'KEY_POWER', 0)
+    except lirc.exceptions.LircdCommandFailureError as error:
+      print('Unable to send the power key!')
+      print(error)
 
 main()
